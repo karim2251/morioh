@@ -1,7 +1,9 @@
 <template>
     <div class="header">
   <div class="header_left">
-    <img src="../assets/logo.png" alt="" />
+    <a href="#">
+      <img src="../assets/logo.png" alt="" />
+    </a>
     <hr />
     <input type="text" id="search" ref="search" placeholder="Search..." />
     <kbd class="keyboard-key">⌘K</kbd>
@@ -92,23 +94,27 @@ export default {
   data() {
     return {
       shownav: false,
+      
     };
   },
   methods:{
     focusinput(event){
       if(event.metaKey && event.key === 'k'){
         this.$refs.search.focus()
+        
       }
+      
+
     }
   },
   mounted(){
-    window.addEventListener('keyup',this.focusinput)
+    window.addEventListener('keyup',this.focusinput);
   },
+  
 };
 </script>
 
 <style scoped>
-
 
 .header {
   height: 60px;
@@ -210,6 +216,7 @@ input:focus {
       font-family: sans-serif;
       font-weight: 500;
       color: #8e9aac;
+      
        /* Text color */
     }
 
