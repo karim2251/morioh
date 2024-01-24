@@ -79,7 +79,7 @@
         ></path>
       </svg>
     </button>
-    <button>
+    <button @click="dropdownfun">
       <img src="../assets/karim.png" alt="" />
     </button>
 
@@ -88,7 +88,7 @@
   <div v-else class="header_right">
       <button id="login">Sign up</button>
   </div>
-  <div class="dropdown">
+  <div v-if="dropdownshow" class="dropdown">
       <p>dcdacdc</p>
     </div>  
   </div>
@@ -100,6 +100,7 @@ export default {
   data() {
     return {
       shownav: true,
+      dropdownshow:false
       
     };
   },
@@ -111,6 +112,9 @@ export default {
       }
       
 
+    },
+    dropdownfun(){
+      this.dropdownshow = !this.dropdownshow
     }
   },
   mounted(){
@@ -240,6 +244,9 @@ input:focus {
   top: 70px;
   right: 20px;
   z-index: 200;
+  background-color: #333a44;
+  width: 250px;
+  border-radius: 10px;
 }
   @media screen and (max-width: 699px) {
     .header_right button:not(:last-child){
