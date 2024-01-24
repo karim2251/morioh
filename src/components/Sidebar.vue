@@ -3,50 +3,50 @@
     <div class="links">
       <a href="#">
         <FeedIcon />
-        feed
+        <span>feed</span>
       </a>
       <a href="#">
         <PopilarIcon />
-        popilar
+        <span>popilar</span>
       </a>
       <a href="#">
         <RecentsIcon />
-        recents
+        <span>recents</span>
       </a>
       <a href="#">
         <VideosIcon />
-        videos
+        <span>videos</span>
       </a>
       <a href="#">
         <QuestionsIcon />
-        questions
+        <span>questions</span>
       </a>
 
       <!-- hidden links -->
 
       <a href="#" class="hide">
         <MessagesIcon />
-        messages
+        <span>messages</span>
       </a>
       <a href="#" class="hide">
         <TopicsIcon />
-        topics
+        <span>topics</span>
       </a>
       <a href="#" class="hide">
         <ListsIcon />
-        lists
+        <span>lists</span>
       </a>
       <a href="#" class="hide">
         <GroupsIcon />
-        groups
+        <span>groups</span>
       </a>
       <a href="#" class="hide">
         <MarketplaceIcon />
-        marketplace
+        <span>marketplace</span>
       </a>
       <a href="#" class="hide">
         <JobsIcon />
-        jobs
+        <span>jobs</span>
       </a>
     </div>
   </div>
@@ -63,7 +63,7 @@ import TopicsIcon from "./icons/TopicsIcon.vue";
 import ListsIcon from "./icons/ListsIcon.vue";
 import GroupsIcon from "./icons/GroupsIcon.vue";
 import MarketplaceIcon from "./icons/MarketplaceIcon.vue";
-import JobsIcon from "./icons/MarketplaceIcon.vue";
+import JobsIcon from "./icons/JobsIcon.vue";
 
 export default {
   components: {
@@ -138,5 +138,42 @@ export default {
 .hide {
   opacity: 0.6;
   cursor: wait;
+}
+@media screen and (max-width: 1355px) {
+  .left {
+ 
+    width:200px;
+
+  }
+  
+}
+@media screen and (max-width: 1024px) {
+
+  .left {
+    top: 9.5%;
+    width:190px;
+    padding-top: 10px;
+
+
+  }
+  
+}
+
+@media screen and (max-width: 970px) {
+  .left .links a span {
+    display: none;
+  }
+  .left {
+    top: 8%;
+    width: min-content;
+    padding-left:10px;
+    display: block;
+    padding-top: 20px;
+  }
+  .links a{
+  padding: 2px 20px;
+
+    
+  }
 }
 </style>

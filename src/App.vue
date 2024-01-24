@@ -58,6 +58,34 @@ export default {
   display: flex;
   gap: 20px;
 }
+@media screen and (max-width: 970px) {
+  .center{
+  margin: 3% 13%;
+  width: 93%; 
+ 
+}
+.center-left{
+  width: 90%;
+}
+  .conter-right{
+  display: none;
+}
+  
+}
 
-
+@media screen and (max-width: 600px) {
+.left{
+  display: none;
+}
+.center{
+  margin: 3% 4.5%;
+  width: 100%; 
+}
+.center-left{
+  width: 90%;
+}
+.conter-right{
+  display: none;
+}
+}
 </style>

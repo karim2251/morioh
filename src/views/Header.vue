@@ -82,18 +82,24 @@
     <button>
       <img src="../assets/karim.png" alt="" />
     </button>
+
+    
   </div>
   <div v-else class="header_right">
       <button id="login">Sign up</button>
   </div>
+  <div class="dropdown">
+      <p>dcdacdc</p>
+    </div>  
   </div>
+
 </template>
 
 <script>
 export default {
   data() {
     return {
-      shownav: false,
+      shownav: true,
       
     };
   },
@@ -227,7 +233,20 @@ input:focus {
       top: 60px !important;
     }
     */
+.dropdown{
+  /* display: none; */
+  position: absolute;
+  color: white;
+  top: 70px;
+  right: 20px;
+  z-index: 200;
+}
+  @media screen and (max-width: 699px) {
+    .header_right button:not(:last-child){
+      display: none;
+    }
 
+  }
   @media screen and (max-width: 570px) {
     #search{
     /* display: none; */
