@@ -10,93 +10,47 @@
   </div>
 
   <div v-if="shownav" class="header_right">
-    <button>
-      <svg
-        stroke="currentColor"
-        fill="currentColor"
-        stroke-width="0"
-        viewBox="0 0 24 24"
-        class="h-5 w-5"
-        aria-hidden="true"
-        height="1em"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
-        data-darkreader-inline-fill=""
-        data-darkreader-inline-stroke=""
-        style="
-          --darkreader-inline-fill: currentColor;
-          --darkreader-inline-stroke: currentColor;
-        "
-      >
-        <path
-          d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z"
-        ></path>
-      </svg>
+    <button title="new post">
+      <PostsIcon/>
     </button>
     <button>
-      <svg
-        stroke="currentColor"
-        fill="currentColor"
-        stroke-width="0"
-        viewBox="0 0 24 24"
-        class="h-5 w-5"
-        aria-hidden="true"
-        height="1em"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
-        data-darkreader-inline-fill=""
-        data-darkreader-inline-stroke=""
-        style="
-          --darkreader-inline-fill: currentColor;
-          --darkreader-inline-stroke: currentColor;
-        "
-      >
-        <path
-          d="M19 13.586V10c0-3.217-2.185-5.927-5.145-6.742C13.562 2.52 12.846 2 12 2s-1.562.52-1.855 1.258C7.185 4.074 5 6.783 5 10v3.586l-1.707 1.707A.996.996 0 0 0 3 16v2a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2a.996.996 0 0 0-.293-.707L19 13.586zM19 17H5v-.586l1.707-1.707A.996.996 0 0 0 7 14v-4c0-2.757 2.243-5 5-5s5 2.243 5 5v4c0 .266.105.52.293.707L19 16.414V17zm-7 5a2.98 2.98 0 0 0 2.818-2H9.182A2.98 2.98 0 0 0 12 22z"
-        ></path>
-      </svg>
+      <NotificationIcon/>
     </button>
     <button>
-      <svg
-        stroke="currentColor"
-        fill="currentColor"
-        stroke-width="0"
-        viewBox="0 0 24 24"
-        class="h-5 w-5"
-        aria-hidden="true"
-        height="1em"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
-        data-darkreader-inline-fill=""
-        data-darkreader-inline-stroke=""
-        style="
-          --darkreader-inline-fill: currentColor;
-          --darkreader-inline-stroke: currentColor;
-        "
-      >
-        <path
-          d="M20 3H5C3.346 3 2 4.346 2 6v12c0 1.654 1.346 3 3 3h15c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM5 19c-.552 0-1-.449-1-1V6c0-.551.448-1 1-1h15v3h-6c-1.103 0-2 .897-2 2v4c0 1.103.897 2 2 2h6.001v3H5zm15-9v4h-6v-4h6z"
-        ></path>
-      </svg>
+    <WalletIcon/>
     </button>
+
+    <!-- profill -->
     <button @click="dropdownfun">
       <img src="../assets/karim.png" alt="" />
     </button>
 
+    <!-- dropdown -->
+    <Dropdown :dropdownshow="dropdownshow" />
     
   </div>
   <div v-else class="header_right">
       <button id="login">Sign up</button>
   </div>
-  <div v-if="dropdownshow" class="dropdown">
-      <p>dcdacdc</p>
-    </div>  
+ 
+  
+  
   </div>
 
 </template>
 
 <script>
+import Dropdown from '../components/Dropdown.vue';
+import NotificationIcon from '../components/icons/NotificationIcon.vue';
+import PostsIcon from '../components/icons/PostsIcon.vue';
+import WalletIcon from '../components/icons/WalletIcon.vue';
 export default {
+  components:{
+    Dropdown,
+    PostsIcon,
+    NotificationIcon,
+    WalletIcon
+  },
   data() {
     return {
       shownav: true,
@@ -237,24 +191,22 @@ input:focus {
       top: 60px !important;
     }
     */
-.dropdown{
-  /* display: none; */
-  position: absolute;
-  color: white;
-  top: 70px;
-  right: 20px;
-  z-index: 200;
-  background-color: #333a44;
-  width: 250px;
-  border-radius: 10px;
-}
+
   @media screen and (max-width: 699px) {
-    .header_right button:not(:last-child){
+    .header_right button:nth-of-type(-n+3){
       display: none;
     }
+    
 
   }
+  @media screen and (max-width: 600px) {
+  .header_left{
+      position: relative;
+      left: 30px;
+    }
+  }
   @media screen and (max-width: 570px) {
+   
     #search{
     /* display: none; */
     width: 150px;

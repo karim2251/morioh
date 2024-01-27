@@ -74,9 +74,6 @@ export default {
 }
 
 @media screen and (max-width: 600px) {
-.left{
-  display: none;
-}
 .center{
   margin: 3% 4.5%;
   width: 100%; 

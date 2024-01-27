@@ -1,5 +1,6 @@
 <template>
-  <div class="left">
+  <button id="btn" @click="toggleSlideMenu">open</button>
+  <div ref="left" class="left">
     <div class="links">
       <a href="#">
         <FeedIcon />
@@ -82,6 +83,22 @@ export default {
   data() {
     return {};
   },
+  methods:{
+    toggleSlideMenu(){
+      if(this.$refs.left.classList.contains('closed')){
+        this.$refs.left.classList.remove('closed')
+        this.$refs.left.classList.toggle('opened')
+
+      }else{
+        this.$refs.left.classList.toggle('opened')
+      }
+    },
+    closeSlideMenu() {
+        this.$refs.left.classList.remove('opened')
+        this.$refs.left.classList.toggle('closed')
+
+    }
+  }
 };
 </script>
 
@@ -139,6 +156,21 @@ export default {
   opacity: 0.6;
   cursor: wait;
 }
+
+.left.opened {
+      width: 220px;
+    }
+.left.closed{
+  width: 0px;
+}
+
+#btn{
+  position: fixed;
+  top: 20px;
+  z-index: 300;
+  left: 1%;
+  display: none;
+}
 @media screen and (max-width: 1355px) {
   .left {
  
@@ -175,5 +207,29 @@ export default {
 
     
   }
+}
+@media screen and (max-width: 600px) {
+#btn{
+  display: block;
+}
+.left{
+  color: white;
+  background-color: #111827;
+  width: 0px;
+  float: left;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 10%;
+  left: 0;
+  bottom: 0;
+  transition: 0.7s ease; 
+  border-radius: 10px;
+}
+.left .links a span {
+    display: block;
+  }
+
 }
 </style>
