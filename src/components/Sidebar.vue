@@ -1,5 +1,5 @@
 <template>
-  <button id="btn" @click="toggleSlideMenu">open</button>
+  <SidebarIcon :shownavbar="shownavbar" id="btn" @click="toggleSlideMenu" />
   <div ref="left" class="left">
     <div class="links">
       <a href="#">
@@ -65,7 +65,7 @@ import ListsIcon from "./icons/ListsIcon.vue";
 import GroupsIcon from "./icons/GroupsIcon.vue";
 import MarketplaceIcon from "./icons/MarketplaceIcon.vue";
 import JobsIcon from "./icons/JobsIcon.vue";
-
+import SidebarIcon from "./icons/SidebarIcon.vue";
 export default {
   components: {
     FeedIcon,
@@ -79,18 +79,25 @@ export default {
     GroupsIcon,
     MarketplaceIcon,
     JobsIcon,
+    SidebarIcon
   },
   data() {
-    return {};
+    return {
+      shownavbar:false
+
+    };
   },
   methods:{
     toggleSlideMenu(){
       if(this.$refs.left.classList.contains('closed')){
         this.$refs.left.classList.remove('closed')
         this.$refs.left.classList.toggle('opened')
+       this.shownavbar = !this.shownavbar
 
       }else{
         this.$refs.left.classList.toggle('opened')
+       this.shownavbar = !this.shownavbar
+
       }
     },
     closeSlideMenu() {
@@ -166,10 +173,11 @@ export default {
 
 #btn{
   position: fixed;
-  top: 20px;
+  top: 18px;
   z-index: 300;
-  left: 1%;
+  left: 2%;
   display: none;
+  color: white;
 }
 @media screen and (max-width: 1355px) {
   .left {
@@ -221,7 +229,7 @@ export default {
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 10%;
+  top: 60px;
   left: 0;
   bottom: 0;
   transition: 0.7s ease; 

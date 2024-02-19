@@ -5,9 +5,11 @@
       <img src="../assets/logo.png" alt="" />
     </a>
     <hr />
+    <SearchIcon :showicon="showicon" @click="showinput" class="searchicon"/>
     <input type="text" id="search" ref="search" placeholder="Search..." />
     <kbd class="keyboard-key">⌘K</kbd>
   </div>
+  
 
   <div v-if="shownav" class="header_right">
     <button title="new post">
@@ -44,17 +46,21 @@ import Dropdown from '../components/Dropdown.vue';
 import NotificationIcon from '../components/icons/NotificationIcon.vue';
 import PostsIcon from '../components/icons/PostsIcon.vue';
 import WalletIcon from '../components/icons/WalletIcon.vue';
+import SearchIcon from '../components/icons/SearchIcon.vue';
 export default {
   components:{
     Dropdown,
     PostsIcon,
     NotificationIcon,
-    WalletIcon
+    WalletIcon,
+    SearchIcon,
+    
   },
   data() {
     return {
       shownav: true,
-      dropdownshow:false
+      dropdownshow:false,
+      showicon:false,
       
     };
   },
@@ -64,12 +70,17 @@ export default {
         this.$refs.search.focus()
         
       }
-      
 
     },
     dropdownfun(){
       this.dropdownshow = !this.dropdownshow
+    },
+    showinput(){
+      this.$refs.search.classList.toggle('showinput')
+      this.showicon = !this.showicon
+
     }
+
   },
   mounted(){
     window.addEventListener('keyup',this.focusinput);
@@ -113,7 +124,6 @@ export default {
   padding-left: 10px;
   border: 2px dashed transparent;
   font-size: 16px;
- 
 }
 .header_left input::placeholder {
   color: #abb4c4af;
@@ -125,7 +135,12 @@ export default {
 input:focus {
   border: 2px dashed #3b82f6;
 }
-
+.searchicon{
+  color: white;
+  position: absolute;
+  left: 80px;
+  display: none;
+}
 .header_right {
   display: flex;
   flex-direction: row;
@@ -168,7 +183,9 @@ input:focus {
 #login:hover{
   background-color: #2563eb;
 }
-
+.showinput{
+  display: block !important;
+}
 .keyboard-key {
       display: inline-flex;
       align-items: center;
@@ -180,6 +197,7 @@ input:focus {
       font-family: sans-serif;
       font-weight: 500;
       color: #8e9aac;
+      background-color: #474f5b;
       
        /* Text color */
     }
@@ -202,18 +220,28 @@ input:focus {
   @media screen and (max-width: 600px) {
   .header_left{
       position: relative;
-      left: 30px;
+      left: 40px;
     }
+      .header_left input{
+        position: absolute;
+        left: -15px;
+        top: 80px;
+        display: none;
+
+      }
+      .keyboard-key{
+    display: none;
+   }
+   .searchicon{
+    display: block;
+   }
   }
   @media screen and (max-width: 570px) {
    
     #search{
-    /* display: none; */
-    width: 150px;
+    width: 290px;
 
   } 
-  .keyboard-key{
-    display: none;
-   }
+  
   }
 </style>
