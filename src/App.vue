@@ -4,7 +4,7 @@
 
     <!-- the content or body -->
     <div class="content">
-      <span>
+      <!-- <span>
       <Sidebar />
 
       <div class="center">
@@ -12,8 +12,8 @@
           <Followers/>
         
       </div>
-    </span>
-      <!-- <Home /> -->
+    </span> -->
+      <Home />
     </div>
     <!-- the content end -->
 

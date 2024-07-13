@@ -123,6 +123,7 @@ export default {
   top: 10%;
   left: 0;
   bottom: 0;
+  z-index: 200;
 }
 .left::-webkit-scrollbar {
   display: none;
